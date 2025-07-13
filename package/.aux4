@@ -1,0 +1,112 @@
+{
+  "scope": "aux4",
+  "name": "license",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "description": "aux4 license tool",
+  "dependencies": [
+    "aux4/aux4"
+  ],
+  "system": [
+    [
+      "test:node --version",
+      "brew:node",
+      "pkgx:node",
+      "apt:nodejs",
+      "apk:nodejs",
+      "dnf:nodejs"
+    ],
+    [
+      "test:npm --version",
+      "apt:npm",
+      "apk:npm",
+      "dnf:npm"
+    ]
+  ],
+  "tags": [
+    "license",
+    "aux4"
+  ],
+  "profiles": [
+    {
+      "name": "aux4",
+      "commands": [
+        {
+          "name": "license",
+          "execute": [
+            "profile:aux4:license"
+          ],
+          "help": {
+            "text": "License tool for aux4"
+          }
+        }
+      ]
+    },
+    {
+      "name": "aux4:license",
+      "commands": [
+        {
+          "name": "list",
+          "execute": [
+            "node lib/index.js list value(name)"
+          ],
+          "help": {
+            "text": "List all the available licenses",
+            "variables": [
+              {
+                "name": "name",
+                "text": "The name of the license",
+                "default": "",
+                "arg": true
+              }
+            ]
+          }
+        },
+        {
+          "name": "info",
+          "execute": [
+            "node lib/index.js info value(name)"
+          ],
+          "help": {
+            "text": "Get information about a specific license",
+            "variables": [
+              {
+                "name": "name",
+                "text": "The name of the license",
+                "arg": true
+              }
+            ]
+          }
+        },
+        {
+          "name": "use",
+          "execute": [
+            "node lib/index.js use values(name, project, owner, year)"
+          ],
+          "help": {
+            "text": "Use a specific license for the project",
+            "variables": [
+              {
+                "name": "name",
+                "text": "The name of the license to use for the project",
+                "arg": true
+              },
+              {
+                "name": "project",
+                "text": "The name of the project"
+              },
+              {
+                "name": "owner",
+                "text": "The owner of the project"
+              },
+              {
+                "name": "year",
+                "text": "The year of the license"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
