@@ -4,7 +4,7 @@ spdx-id: 0BSD
 
 description: The BSD Zero Clause license goes further than the BSD 2-Clause license to allow you unlimited freedom with the software without requirements to include the copyright notice, license text, or disclaimer in either source or binary forms.
 
-how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file.  Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders. You may take the additional step of removing the copyright notice.
+how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file.  Replace [yyyy] with the current year and [owner] with the name (or names) of the copyright holders. You may take the additional step of removing the copyright notice.
 
 using:
   gatsby-starter-default: https://github.com/gatsbyjs/gatsby-starter-default/blob/master/LICENSE
@@ -27,7 +27,7 @@ limitations:
 
 BSD Zero Clause License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [yyyy] [owner]
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted.

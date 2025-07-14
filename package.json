@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/aux4/license/issues"
   },
-  "homepage": "https://github.com/aux4/license#readme"
+  "homepage": "https://github.com/aux4/license#readme",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
 }

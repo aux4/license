@@ -4,7 +4,7 @@ spdx-id: MIT-0
 
 description: A short and simple permissive license with no conditions, not even requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
 
-how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.
+how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [yyyy] with the current year and [owner] with the name (or names) of the copyright holders.
 
 using:
   Reactive Streams: https://github.com/reactive-streams/reactive-streams-jvm/blob/master/LICENSE
@@ -27,7 +27,7 @@ limitations:
 
 MIT No Attribution
 
-Copyright [year] [fullname]
+Copyright [yyyy] [owner]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
