@@ -1,0 +1,19 @@
+{
+  "profiles": [
+    {
+      "name": "main",
+      "commands": [
+        {
+          "name": "build",
+          "execute": [
+            "npm install",
+            "npm run build"
+          ],
+          "help": {
+            "text": "Build the project"
+          }
+        }
+      ]
+    }
+  ]
+}

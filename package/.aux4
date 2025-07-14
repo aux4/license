@@ -48,7 +48,7 @@
         {
           "name": "list",
           "execute": [
-            "node lib/index.js list value(name)"
+            "node ${packageDir}/lib/aux4-license.cjs list value(name)"
           ],
           "help": {
             "text": "List all the available licenses",
@@ -65,7 +65,7 @@
         {
           "name": "info",
           "execute": [
-            "node lib/index.js info value(name)"
+            "node ${packageDir}/lib/aux4-license.cjs info value(name)"
           ],
           "help": {
             "text": "Get information about a specific license",
@@ -81,7 +81,7 @@
         {
           "name": "use",
           "execute": [
-            "node lib/index.js use values(name, project, owner, year)"
+            "node ${packageDir}/lib/aux4-license.cjs use values(name, year, owner, project)"
           ],
           "help": {
             "text": "Use a specific license for the project",
