@@ -50,7 +50,7 @@ function listLicenses(nameFilter = "") {
     : licenses;
 
   if (filtered.length === 0) {
-    console.log(
+    console.error(
       nameFilter
         ? `No licenses found matching "${nameFilter}"`.red
         : "No licenses found".red,
