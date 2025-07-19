@@ -6,7 +6,7 @@ hidden: false
 
 description: A permissive license that comes in two variants, the <a href="/licenses/bsd-2-clause/">BSD 2-Clause</a> and <a href="/licenses/bsd-3-clause/">BSD 3-Clause</a>. Both have very minute differences to the MIT license.
 
-how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.
+how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [yyyy] with the current year and [owner] with the name (or names) of the copyright holders.
 
 using:
   go-redis: https://github.com/go-redis/redis/blob/master/LICENSE
@@ -30,7 +30,7 @@ limitations:
 
 BSD 2-Clause License
 
-Copyright (c) [year], [fullname]
+Copyright (c) [yyyy], [owner]
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:

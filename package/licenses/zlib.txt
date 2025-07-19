@@ -4,7 +4,7 @@ spdx-id: Zlib
 
 description: A short permissive license, compatible with GPL. Requires altered source versions to be documented as such.
 
-how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders.
+how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [yyyy] with the current year and [owner] with the name (or names) of the copyright holders.
 
 using:
   GLFW: https://github.com/glfw/glfw/blob/master/LICENSE.md
@@ -29,7 +29,7 @@ limitations:
 
 zlib License
 
-(C) [year] [fullname]
+(C) [yyyy] [owner]
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages

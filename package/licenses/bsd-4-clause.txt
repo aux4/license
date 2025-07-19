@@ -4,7 +4,7 @@ spdx-id: BSD-4-Clause
 
 description: A permissive license similar to the <a href="/licenses/bsd-3-clause/">BSD 3-Clause License</a>, but with an "advertising clause" that requires an acknowledgment of the original source in all advertising material.
 
-how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [year] with the current year and [fullname] with the name (or names) of the copyright holders. Replace [project] with the project organization, if any, that sponsors this work.
+how: Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [yyyy] with the current year and [owner] with the name (or names) of the copyright holders. Replace [project] with the project organization, if any, that sponsors this work.
 
 using:
   Choco-solver: https://github.com/chocoteam/choco-solver/blob/master/LICENSE
@@ -28,7 +28,7 @@ limitations:
 
 BSD 4-Clause License
 
-Copyright (c) [year], [fullname]
+Copyright (c) [yyyy], [owner]
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
