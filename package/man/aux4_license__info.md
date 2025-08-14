@@ -1,56 +1,23 @@
 #### Description
 
-The `info` command displays comprehensive metadata about a specific license available in the built-in license repository. It loads the license definition file and prints key details such as the title, SPDX identifier, full description, permissions, conditions, limitations, usage instructions, and a link to the official license page.
+The `info` command provides detailed information about a specific software license. It helps developers understand the key characteristics, permissions, and restrictions of a particular license by retrieving and displaying comprehensive details.
 
-This command helps you quickly inspect the terms and requirements of an open-source license before choosing or applying it to your project.
+By using this command, you can quickly learn about the terms and conditions of different open-source software licenses without manually researching each one. It serves as a quick reference for understanding licensing options for your projects.
 
 #### Usage
 
 ```bash
-aux4 license info --name <license-name>
+aux4 aux4 license info --name <license-name>
 ```
 
-- `<license-name>`: The identifier of the license you want to inspect (e.g., `mit`, `apache-2.0`, `gpl-3.0`).
+- `--name`: Specifies the name of the license you want to get information about (required)
 
 #### Example
 
-Fetch and display details for the MIT license:
-
 ```bash
-aux4 license info --name mit
+aux4 aux4 license info --name MIT
 ```
 
-This command outputs the following information:
+This command will retrieve and display detailed information about the MIT License, including its key provisions, permissions, and typical use cases.
 
-```text
-License:
-mit
-
-Title:
-MIT License
-
-SPDX ID:
-MIT
-
-Description:
-A short and simple permissive license with conditions only requiring preservation of copyright and license notices.
-
-Permissions:
-  - commercial-use
-  - modifications
-  - distribution
-  - private-use
-
-Conditions:
-  - include-copyright
-
-Limitations:
-  - liability
-  - warranty
-
-How to use:
-Create a text file (typically named LICENSE or LICENSE.txt) in the root of your source code and copy the text of the license into the file. Replace [yyyy] with the current year and [owner] with the name (or names) of the copyright holders.
-
-Website:
-https://choosealicense.com/licenses/mit
-```
+The output will provide a comprehensive overview of the specified license, helping you understand its terms and applicability to your project.

@@ -1,94 +1,69 @@
 # aux4/license
 
-aux4 license is a command-line tool to manage open-source licenses in your projects. It lets you list available licenses, view detailed information, and apply a license file to your repository with a single command.
+aux4 license tool – list, inspect, and apply open-source licenses to your projects.
 
 ## Installation
 
 Install this package via the aux4 package manager:
 
 ```bash
-aux4 pkger install aux4/license:0.0.4
+aux4 aux4 pkger install aux4/license
 ```
-
-> Note: This tool requires Node.js and npm to be installed on your system.
 
 ## Usage
 
-After installation, the main entry point is the `aux4 license` command, which provides three subcommands:
+All commands are available under the `aux4 license` namespace. You can explore detailed help for each command using `--help`.
 
-* [aux4 license list](./commands/aux4/license/list) – List all supported licenses or filter by name.
-* [aux4 license info](./commands/aux4/license/info) – Show detailed metadata about a specific license.
-* [aux4 license use](./commands/aux4/license/use) – Generate and apply a license file in your project.
+- [aux4 license list](./commands/aux4/license/list) – List all available licenses, optionally filtering by name.
+- [aux4 license info](./commands/aux4/license/info) – Show metadata and full text for a specific license.
+- [aux4 license use](./commands/aux4/license/use) – Generate a `LICENSE` file for your project based on a chosen license.
 
-Run the help flag on any command to see available options:
+### Command Syntax
 
 ```bash
-aux4 license <command> --help
+aux4 license <command> [--<variable> <value>]
 ```
 
-### Command Reference
+For nested profiles (none in this package), you would prefix with profile names, but here all commands live under the `aux4 license` profile.
 
-#### aux4 license list
+## Commands & Examples
 
-List all the available licenses. You can optionally filter by license name (partial or full):
+### 1. List Licenses
+
+List all available licenses. You can also filter by license name.
 
 ```bash
-# List all licenses
+# List every license
 aux4 license list
 
-# List licenses matching "MIT"
-aux4 license list --name MIT
+# Filter by keyword (e.g., mit)
+aux4 license list --name mit
 ```
 
-#### aux4 license info
+### 2. Show License Information
 
-Show detailed information (full name, SPDX identifier, text summary) for a given license:
+Display human-readable details and the full text of a specific license.
 
 ```bash
-aux4 license info --name Apache-2.0
+aux4 license info --name apache-2.0
 ```
 
-#### aux4 license use
+### 3. Generate a LICENSE File
 
-Generate a LICENSE file in the current directory based on the chosen license template. You can provide metadata such as year, owner, and project name:
+Create a `LICENSE` file in your current directory, populating placeholders like project name, owner, and year.
 
 ```bash
 aux4 license use \
-  --name MIT \
-  --owner "Jane Doe" \
-  --project "AwesomeProject" \
-  --year 2024
+  --name mit \
+  --owner "Alice Doe" \
+  --year 2023 \
+  --project "my-awesome-project"
 ```
 
-This will create or overwrite a `LICENSE` file in your working directory.
-
-## Examples
-
-1. Quickly list all available licenses:
-
-   ```bash
-   aux4 license list
-   ```
-
-2. Get info about the GNU GPL v3 license:
-
-   ```bash
-   aux4 license info --name GPL-3.0
-   ```
-
-3. Add the Apache 2.0 license to your project:
-
-   ```bash
-   aux4 license use --name Apache-2.0 --owner "ACME, Inc." --year 2023
-   ```
-
-## System Requirements
-
-* Node.js (>= v12)
-* npm (for installing dependencies)
+This will generate a `LICENSE` file in your working directory based on the MIT license template.
 
 ## License
 
-This project is licensed under the Apache-2.0 license. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the Apache-2.0 License. See [LICENSE](./LICENSE) for details.
 
-[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)

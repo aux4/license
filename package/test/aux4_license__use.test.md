@@ -1,4 +1,4 @@
-### Generate LICENSE file with MIT license including project name
+### Use license
 
 ```afterAll
 rm -f LICENSE
@@ -16,7 +16,7 @@ Created LICENSE file using MIT License.
   File: .+/LICENSE
 ```
 
-### Validate LICENSE file content contains replaced year and owner
+#### Verify the generated LICENSE file replaces year and owner:
 
 ```execute
 cat LICENSE
