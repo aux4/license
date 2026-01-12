@@ -65,7 +65,7 @@
         {
           "name": "info",
           "execute": [
-            "node ${packageDir}/lib/aux4-license.cjs info value(name)"
+            "node ${packageDir}/lib/aux4-license.cjs info values(name,json)"
           ],
           "help": {
             "text": "Get information about a specific license",
@@ -74,6 +74,11 @@
                 "name": "name",
                 "text": "The name of the license",
                 "arg": true
+              },
+              {
+                "name": "json",
+                "text": "Output the information in JSON format",
+                "default": "false"
               }
             ]
           }

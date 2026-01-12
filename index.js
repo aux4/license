@@ -74,52 +74,71 @@ function listLicenses(nameFilter = "") {
   console.log(`Found ${filtered.length} license(s)`.gray);
 }
 
-function showLicenseInfo(licenseName) {
+function showLicenseInfo(licenseName, json = false) {
   try {
     const license = loadLicense(`${licenseName}.txt`);
 
-    console.log(`${"License:".bold.cyan}\n${license.name.yellow}`);
-    console.log(
-      `\n${"Title:".bold.cyan}\n${(license.metadata.title || "N/A").white}`,
-    );
-    console.log(
-      `\n${"SPDX ID:".bold.cyan}\n${(license.metadata["spdx-id"] || "N/A").white}`,
-    );
-    console.log(
-      `\n${"Description:".bold.cyan}\n${(license.metadata.description || "N/A").white}`,
-    );
+    // Convert string "true"/"false" to boolean
+    const isJsonOutput = json === true || json === "true";
 
-    if (license.metadata.permissions) {
-      console.log(`\nPermissions:`.cyan.bold);
-      license.metadata.permissions.forEach((perm) =>
-        console.log(`  - ${perm}`.green),
+    if (isJsonOutput) {
+      const jsonOutput = {
+        name: license.name,
+        title: license.metadata.title || null,
+        spdxId: license.metadata["spdx-id"] || null,
+        description: license.metadata.description || null,
+        permissions: license.metadata.permissions || [],
+        conditions: license.metadata.conditions || [],
+        limitations: license.metadata.limitations || [],
+        how: license.metadata.how || null,
+        website: `https://choosealicense.com/licenses/${license.name.toLowerCase()}`
+      };
+
+      console.log(JSON.stringify(jsonOutput, null, 2));
+    } else {
+      console.log(`${"License:".bold.cyan}\n${license.name.yellow}`);
+      console.log(
+        `\n${"Title:".bold.cyan}\n${(license.metadata.title || "N/A").white}`,
+      );
+      console.log(
+        `\n${"SPDX ID:".bold.cyan}\n${(license.metadata["spdx-id"] || "N/A").white}`,
+      );
+      console.log(
+        `\n${"Description:".bold.cyan}\n${(license.metadata.description || "N/A").white}`,
+      );
+
+      if (license.metadata.permissions) {
+        console.log(`\nPermissions:`.cyan.bold);
+        license.metadata.permissions.forEach((perm) =>
+          console.log(`  - ${perm}`.green),
+        );
+      }
+
+      if (license.metadata.conditions) {
+        console.log(`\nConditions:`.cyan.bold);
+        license.metadata.conditions.forEach((cond) =>
+          console.log(`  - ${cond}`.yellow),
+        );
+      }
+
+      if (license.metadata.limitations) {
+        console.log(`\nLimitations:`.cyan.bold);
+        license.metadata.limitations.forEach((limit) =>
+          console.log(`  - ${limit}`.red),
+        );
+      }
+
+      if (license.metadata.how) {
+        console.log(`\nHow to use:`.cyan.bold);
+        console.log(`${license.metadata.how}`.white);
+      }
+
+      console.log(
+        `\n${"Website: ".bold.cyan}`,
+        `\nhttps://choosealicense.com/licenses/${license.name.toLowerCase()}`
+          .white,
       );
     }
-
-    if (license.metadata.conditions) {
-      console.log(`\nConditions:`.cyan.bold);
-      license.metadata.conditions.forEach((cond) =>
-        console.log(`  - ${cond}`.yellow),
-      );
-    }
-
-    if (license.metadata.limitations) {
-      console.log(`\nLimitations:`.cyan.bold);
-      license.metadata.limitations.forEach((limit) =>
-        console.log(`  - ${limit}`.red),
-      );
-    }
-
-    if (license.metadata.how) {
-      console.log(`\nHow to use:`.cyan.bold);
-      console.log(`${license.metadata.how}`.white);
-    }
-
-    console.log(
-      `\n${"Website: ".bold.cyan}`,
-      `\nhttps://choosealicense.com/licenses/${license.name.toLowerCase()}`
-        .white,
-    );
   } catch (error) {
     console.error(`License "${licenseName}" not found`.red);
     process.exit(1);
@@ -185,7 +204,7 @@ function main() {
         console.error("License name is required for info command");
         process.exit(1);
       }
-      showLicenseInfo(args[1]);
+      showLicenseInfo(args[1], args[2]);
       break;
 
     case "use":

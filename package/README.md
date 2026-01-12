@@ -1,69 +1,157 @@
 # aux4/license
 
-aux4 license tool – list, inspect, and apply open-source licenses to your projects.
+aux4 license tool
+
+The aux4 license tool enables you to easily manage open-source licenses within your projects. With this package, you can:
+
+- List all available licenses or filter by name
+- Retrieve detailed information about a specific license (with optional JSON output)
+- Generate and apply a license file for your project
+
+This tool integrates seamlessly with the aux4 ecosystem.
 
 ## Installation
-
-Install this package via the aux4 package manager:
 
 ```bash
 aux4 aux4 pkger install aux4/license
 ```
 
+## System Dependencies
+
+This package requires Node.js and npm, which will be handled automatically by aux4 system installers. The following installers may be used:
+
+- brew
+- pkgx
+- apt
+- apk
+- dnf
+
+For more details about system installers, see [system-installer](/r/public/packages/aux4/pkger/commands/aux4/pkger/system).
+
+## Quick Start
+
+List all available licenses:
+
+```bash
+aux4 aux4 license list
+```
+
+Generate a license file for your project:
+
+```bash
+aux4 aux4 license use MIT --project my-app --owner "Alice" --year 2024
+```
+
 ## Usage
 
-All commands are available under the `aux4 license` namespace. You can explore detailed help for each command using `--help`.
+The `license` command group provides three primary commands:
 
-- [aux4 license list](./commands/aux4/license/list) – List all available licenses, optionally filtering by name.
-- [aux4 license info](./commands/aux4/license/info) – Show metadata and full text for a specific license.
-- [aux4 license use](./commands/aux4/license/use) – Generate a `LICENSE` file for your project based on a chosen license.
+### Main Commands
 
-### Command Syntax
+- [`aux4 aux4 license list [name]`](./commands/aux4/license/list) - List all available licenses or filter by a partial name match
+- [`aux4 aux4 license info <name> [--json]`](./commands/aux4/license/info) - Show detailed information about a specific license
+- [`aux4 aux4 license use <name> --project <project> --owner <owner> --year <year>`](./commands/aux4/license/use) - Generate a LICENSE file for your project
 
-```bash
-aux4 license <command> [--<variable> <value>]
-```
+### Command Reference
 
-For nested profiles (none in this package), you would prefix with profile names, but here all commands live under the `aux4 license` profile.
+#### list
 
-## Commands & Examples
+List all licenses, or only those matching a given name.
 
-### 1. List Licenses
-
-List all available licenses. You can also filter by license name.
+Usage:
 
 ```bash
-# List every license
-aux4 license list
-
-# Filter by keyword (e.g., mit)
-aux4 license list --name mit
+aux4 aux4 license list [name]
 ```
 
-### 2. Show License Information
+Variables:
 
-Display human-readable details and the full text of a specific license.
+- `name` (optional, positional): Filter licenses by name (e.g., `MIT`, `Apache-2.0`).
+
+#### info
+
+Show detailed information about a specific license.
+
+Usage:
 
 ```bash
-aux4 license info --name apache-2.0
+aux4 aux4 license info <name> [--json]
 ```
 
-### 3. Generate a LICENSE File
+Variables:
 
-Create a `LICENSE` file in your current directory, populating placeholders like project name, owner, and year.
+- `name` (required, positional): The exact license identifier (e.g., `MIT`, `GPL-3.0`).
+- `json` (optional): Output information in JSON format instead of formatted text (default: false).
+
+#### use
+
+Generate a LICENSE file populated with your project details.
+
+Usage:
 
 ```bash
-aux4 license use \
-  --name mit \
-  --owner "Alice Doe" \
-  --year 2023 \
-  --project "my-awesome-project"
+aux4 aux4 license use <name> --project <project> --owner <owner> --year <year>
 ```
 
-This will generate a `LICENSE` file in your working directory based on the MIT license template.
+Variables:
+
+- `name` (required, positional): License identifier to apply (e.g., `MIT`, `Apache-2.0`).
+- `project` (optional): The name of your project (default: none).
+- `owner` (optional): The copyright holder or organization (default: none).
+- `year` (optional): Year to attribute in the license (default: current year).
+
+## Examples
+
+### Basic Usage
+
+List every available license:
+
+```bash
+aux4 aux4 license list
+```
+
+Filter licenses by name:
+
+```bash
+aux4 aux4 license list BSD
+```
+
+### Advanced Usage
+
+Get details on the Apache 2.0 license:
+
+```bash
+aux4 aux4 license info Apache-2.0
+```
+
+Get license information in JSON format for programmatic use:
+
+```bash
+aux4 aux4 license info MIT --json
+```
+
+Apply the MIT license to a new project:
+
+```bash
+aux4 aux4 license use MIT --project my-app --owner "Alice" --year 2024
+```
+
+### Real-world Scenario
+
+```bash
+# Initialize a new repository
+mkdir cool-project && cd cool-project
+
+# Apply Apache-2.0 license with organization and year
+aux4 aux4 license use Apache-2.0 --project cool-project --owner "Acme Corp" --year 2023
+```
+
+## Configuration
+
+No additional configuration is required for this package.
 
 ## License
 
-This project is licensed under the Apache-2.0 License. See [LICENSE](./LICENSE) for details.
+This package is licensed under the Apache-2.0 License.
 
-[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](./license)
